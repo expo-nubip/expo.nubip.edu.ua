@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" role="img" aria-label="EXPO NUBIP">
+  <rect width="56" height="56" rx="12" fill="#2e7d32"/>
+  <path d="M16 38c0-9 6-16 18-18-1 10-7 16-18 18zm4 6c0-6 3-11 9-14" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <text x="68" y="26" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#1b5e20">EXPO</text>
+  <text x="68" y="48" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#43a047">NUBIP</text>
+</svg>
