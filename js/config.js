@@ -26,7 +26,7 @@ window.SITE_CONFIG = {
     "sponsors": [],
     "participants": [],
     "info-partners": [
-      { file: "zeep.jpeg", name: "ZEEP", url: "https://www.youtube.com/@ZeepInUA" },
+      { file: "zeep.png", name: "ZEEP", url: "https://www.youtube.com/@ZeepInUA" },
 ]
   },
 
