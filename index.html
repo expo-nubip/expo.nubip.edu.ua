@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EXPO NUBIP — Виставка тваринництва</title>
-  <meta name="description" content="Виставка тваринництва НУБіП України: експозиція, програма, учасники та партнери.">
-  <meta property="og:title" content="EXPO NUBIP — Виставка тваринництва">
+  <title>НУБіП. Тваринництво — виставка | НУБіП України</title>
+  <meta name="description" content="Виставка «НУБіП. Тваринництво» — Національний університет біоресурсів і природокористування України: експозиція, програма, учасники та партнери.">
+  <meta property="og:title" content="НУБіП. Тваринництво — виставка">
   <meta property="og:description" content="Виставка тваринництва НУБіП України: експозиція, програма, учасники та партнери.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/hero/hero-desktop.jpg">
-  <meta name="theme-color" content="#12391a">
+  <meta name="theme-color" content="#0061AB">
   <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
+
+  <!-- Шрифти за брендбуком: Myriad Pro → аналог Source Sans 3; Minion Pro → Source Serif 4 (запасні: Arial, Times New Roman) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700;800&family=Source+Serif+4:wght@400;600&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -25,14 +30,29 @@
   <symbol id="i-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></symbol>
 </svg>
 
-<!-- ===== Закріплене меню ===== -->
+<!-- ===== Закріплена шапка: синя смуга + світла підсмуга з меню ===== -->
 <header class="site-header" id="top">
-  <div class="container site-header__inner">
-    <a class="brand" href="#hero" aria-label="На початок сторінки">
-      <img src="images/logo/logo.svg" alt="EXPO NUBIP" width="160" height="44">
-    </a>
-    <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span></button>
-    <nav class="nav" id="nav" aria-label="Головне меню">
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#hero" aria-label="НУБіП України — на початок сторінки">
+        <img src="images/logo/logo.svg" alt="НУБіП 1898" width="68" height="90">
+      </a>
+      <p class="topbar__name">Національний університет біоресурсів і природокористування України<span>Виставка «НУБіП. Тваринництво»</span></p>
+
+      <ul class="socials header__socials" aria-label="Соціальні мережі">
+        <li><a href="https://www.facebook.com/share/19phwVVcNG/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+        <li><a href="https://www.instagram.com/expo.nubip" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
+        <li><a href="https://www.tiktok.com/@expo.nubip" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg><use href="#i-tiktok"/></svg></a></li>
+        <li><a href="https://www.threads.com/@expo.nubip" target="_blank" rel="noopener" aria-label="Threads" title="Threads"><svg><use href="#i-threads"/></svg></a></li>
+        <li><a href="https://www.linkedin.com/in/нубіп-тваринництво-виставка-778126438" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg><use href="#i-linkedin"/></svg></a></li>
+        <li><a href="https://www.youtube.com/@expo_nubip" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
+      </ul>
+      <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
+  </div>
+
+  <nav class="subbar" id="nav" aria-label="Головне меню">
+    <div class="container">
       <ul class="nav__list">
         <li><a href="#about">Про виставку</a></li>
         <li><a href="#exposition">Експозиція</a></li>
@@ -43,55 +63,7 @@
         <li><a href="#team">Команда</a></li>
         <li><a href="#contacts">Контакти</a></li>
       </ul>
-      <ul class="socials header__socials" aria-label="Соціальні мережі">
-        <li><a href="https://www.facebook.com/share/19phwVVcNG/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
-        <li><a href="https://www.instagram.com/expo.nubip" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
-        <li><a href="https://www.tiktok.com/@expo.nubip" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg><use href="#i-tiktok"/></svg></a></li>
-        <li><a href="https://www.threads.com/@expo.nubip" target="_blank" rel="noopener" aria-label="Threads" title="Threads"><svg><use href="#i-threads"/></svg></a></li>
-        <li><a href="https://www.linkedin.com/in/нубіп-тваринництво-виставка-778126438" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg><use href="#i-linkedin"/></svg></a></li>
-        <li><a href="https://www.youtube.com/@expo_nubip" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <!-- ===== Hero: динамічне фонове зображення залежно від екрана ===== -->
-  <section class="hero" id="hero">
-    <picture class="hero__bg" id="heroBg">
-      <!-- Телефони -->
-      <source media="(max-width: 767px)"
-              srcset="images/hero/hero-mobile.jpg 1x, images/hero/hero-mobile@2x.jpg 2x">
-      <!-- Планшети -->
-      <source media="(min-width: 768px) and (max-width: 1279px)"
-              srcset="images/hero/hero-tablet.jpg 1x, images/hero/hero-tablet@2x.jpg 2x">
-      <!-- Великі та ультраширокі екрани -->
-      <source media="(min-width: 2200px)"
-              srcset="images/hero/hero-wide.jpg">
-      <!-- Ноутбуки та ПК (за замовчуванням) -->
-      <img src="images/hero/hero-desktop.jpg"
-           srcset="images/hero/hero-desktop.jpg 1x, images/hero/hero-desktop@2x.jpg 2x"
-           alt="" fetchpriority="high" decoding="async">
-    </picture>
-
-    <div class="container hero__content">
-      <span class="hero__tag">Виставка · НУБіП України</span>
-      <h1>EXPO NUBIP: тваринництво</h1>
-      <p>Сучасні технології, обладнання та рішення для тваринництва. Зустрічі з виробниками, практичні демонстрації та професійне спілкування.</p>
-
-      <div class="hero__actions">
-        <a class="btn btn--primary" id="joinBtn" href="#contacts">Взяти участь</a>
-        <a class="btn btn--ghost" href="#program">Програма</a>
-      </div>
-
-      <div class="countdown" id="countdown" aria-live="off">
-        <div><b data-unit="days">--</b><small>днів</small></div>
-        <div><b data-unit="hours">--</b><small>годин</small></div>
-        <div><b data-unit="minutes">--</b><small>хвилин</small></div>
-        <div><b data-unit="seconds">--</b><small>секунд</small></div>
-      </div>
-
-      <ul class="socials hero__socials" aria-label="Ми в соціальних мережах">
+      <ul class="socials nav__socials" aria-label="Соціальні мережі">
         <li><a href="https://www.facebook.com/share/19phwVVcNG/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
         <li><a href="https://www.instagram.com/expo.nubip" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
         <li><a href="https://www.tiktok.com/@expo.nubip" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"/></svg></a></li>
@@ -100,10 +72,61 @@
         <li><a href="https://www.youtube.com/@expo_nubip" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
       </ul>
     </div>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== Hero: динамічне фонове зображення залежно від екрана ===== -->
+  <section class="hero" id="hero">
+    <picture class="hero__bg" id="heroBg">
+      <!-- Телефони -->
+      <source media="(max-width: 767px)" srcset="images/hero/hero-mobile.jpg 1x, images/hero/hero-mobile@2x.jpg 2x">
+      <!-- Планшети -->
+      <source media="(min-width: 768px) and (max-width: 1279px)" srcset="images/hero/hero-tablet.jpg 1x, images/hero/hero-tablet@2x.jpg 2x">
+      <!-- Великі та ультраширокі екрани -->
+      <source media="(min-width: 2200px)" srcset="images/hero/hero-wide.jpg">
+      <!-- Ноутбуки та ПК (за замовчуванням) -->
+      <img src="images/hero/hero-desktop.jpg" srcset="images/hero/hero-desktop.jpg 1x, images/hero/hero-desktop@2x.jpg 2x" alt="" fetchpriority="high" decoding="async">
+    </picture>
+
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <span class="hero__kicker">Виставка · НУБіП України · 1898</span>
+          <h1>НУБіП.<em>Тваринництво</em></h1>
+          <p class="hero__lead">Сучасні технології, обладнання та рішення для тваринництва. Зустрічі з виробниками, наукові презентації та професійне спілкування.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" id="joinBtn" href="#contacts">Взяти участь</a>
+            <a class="btn btn--ghost" href="#program">Програма</a>
+          </div>
+
+          <div class="countdown" id="countdown" aria-live="off">
+            <div><b data-unit="days">--</b><small>днів</small></div>
+            <div><b data-unit="hours">--</b><small>годин</small></div>
+            <div><b data-unit="minutes">--</b><small>хвилин</small></div>
+            <div><b data-unit="seconds">--</b><small>секунд</small></div>
+          </div>
+
+          <ul class="socials hero__socials" aria-label="Ми в соціальних мережах">
+            <li><a href="https://www.facebook.com/share/19phwVVcNG/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
+            <li><a href="https://www.instagram.com/expo.nubip" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
+            <li><a href="https://www.tiktok.com/@expo.nubip" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tiktok"/></svg></a></li>
+            <li><a href="https://www.threads.com/@expo.nubip" target="_blank" rel="noopener" aria-label="Threads"><svg><use href="#i-threads"/></svg></a></li>
+            <li><a href="https://www.linkedin.com/in/нубіп-тваринництво-виставка-778126438" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="https://www.youtube.com/@expo_nubip" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
+          </ul>
+        </div>
+        <div class="hero__emblem" aria-hidden="true">
+          <img src="images/logo/logo.svg" alt="" width="340" height="453">
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- ===== Про виставку ===== -->
+  <!-- ===== 1. Про виставку ===== -->
   <section class="section" id="about">
+    <span class="bignum" aria-hidden="true">1</span>
     <div class="container">
       <div class="stats">
         <!-- TODO: підставте реальні цифри -->
@@ -112,33 +135,38 @@
         <div class="stat"><b>0000+</b><span>відвідувачів</span></div>
         <div class="stat"><b>0</b><span>дні роботи</span></div>
       </div>
-      <h2 style="margin-top:48px">Про виставку</h2>
-      <p class="section__lead">
+      <p class="eyebrow">Національний університет біоресурсів і природокористування України</p>
+      <h2>Про виставку</h2>
+      <p class="lead">
         <!-- TODO: замініть на офіційний опис виставки -->
-        Виставка тваринництва НУБіП України об'єднує науковців, виробників, фермерів і студентів. Тут можна побачити сучасні технології утримання та годівлі, генетику, ветеринарні рішення й обладнання, а також налагодити професійні контакти.
+        Виставка «НУБіП. Тваринництво» об'єднує науковців, виробників, фермерів і студентів. Тут можна побачити сучасні технології утримання та годівлі, генетику, ветеринарні рішення й обладнання, а також налагодити професійні контакти з університетом, що від 1898 року працює на розвиток аграрної науки й освіти.
       </p>
     </div>
   </section>
 
-  <!-- ===== Експозиція ===== -->
+  <!-- ===== 2. Експозиція ===== -->
   <section class="section section--alt" id="exposition">
+    <span class="bignum" aria-hidden="true">2</span>
     <div class="container">
+      <p class="eyebrow">Напрями виставки</p>
       <h2>Експозиція</h2>
       <div class="cards">
         <!-- TODO: змініть напрямки під вашу виставку -->
         <article class="card"><div class="card__body"><h3>Виставкова експозиція</h3>
-          <ul><li>Обладнання для ферм</li><li>Годівля та кормові добавки</li><li>Генетика та племінна справа</li><li>Ветеринарні препарати</li></ul></div></article>
-        <article class="card"><div class="card__body"><h3>Наукова частина</h3>
-          <ul><li>Доповіді та панелі</li><li>Презентації розробок університету</li><li>Круглі столи</li></ul></div></article>
+          <ul><li>Обладнання для ферм і комплексів</li><li>Годівля та кормові добавки</li><li>Генетика та племінна справа</li><li>Ветеринарні препарати</li></ul></div></article>
+        <article class="card card--sci"><div class="card__body"><h3>Наукова частина</h3>
+          <ul><li>Доповіді та панельні дискусії</li><li>Презентації розробок університету</li><li>Круглі столи з галузевими експертами</li></ul></div></article>
         <article class="card"><div class="card__body"><h3>Практичні демонстрації</h3>
           <ul><li>Майстер-класи</li><li>Демонстрація технологій</li><li>Консультації експертів</li></ul></div></article>
       </div>
     </div>
   </section>
 
-  <!-- ===== Програма ===== -->
+  <!-- ===== 3. Програма ===== -->
   <section class="section" id="program">
+    <span class="bignum" aria-hidden="true">3</span>
     <div class="container">
+      <p class="eyebrow">Розклад заходів</p>
       <h2>Програма заходу</h2>
       <div class="program">
         <!-- TODO: підставте реальні дати й час -->
@@ -150,9 +178,11 @@
     </div>
   </section>
 
-  <!-- ===== Учасники ===== -->
+  <!-- ===== 4. Учасники ===== -->
   <section class="section section--alt" id="participants">
+    <span class="bignum" aria-hidden="true">4</span>
     <div class="container">
+      <p class="eyebrow">Компанії та організації</p>
       <h2>Учасники</h2>
       <div class="logo-block">
         <div class="logo-grid" data-logos="participants"></div>
@@ -160,9 +190,11 @@
     </div>
   </section>
 
-  <!-- ===== Партнери, спонсори ===== -->
+  <!-- ===== 5. Партнери, спонсори ===== -->
   <section class="section" id="partners">
+    <span class="bignum" aria-hidden="true">5</span>
     <div class="container">
+      <p class="eyebrow">Ті, хто підтримує виставку</p>
       <h2>Партнери та спонсори</h2>
 
       <div class="logo-block">
@@ -184,18 +216,22 @@
     </div>
   </section>
 
-  <!-- ===== Галерея ===== -->
+  <!-- ===== 6. Галерея ===== -->
   <section class="section section--alt" id="gallery">
+    <span class="bignum" aria-hidden="true">6</span>
     <div class="container">
+      <p class="eyebrow">Фоторепортаж</p>
       <h2>Найяскравіші моменти</h2>
       <div class="gallery" id="galleryGrid"></div>
       <p class="logo-empty" id="galleryEmpty" hidden>Фото з'являться незабаром.</p>
     </div>
   </section>
 
-  <!-- ===== Команда ===== -->
+  <!-- ===== 7. Команда ===== -->
   <section class="section" id="team">
+    <span class="bignum" aria-hidden="true">7</span>
     <div class="container">
+      <p class="eyebrow">Організатори</p>
       <h2>Наша команда</h2>
       <div class="team">
         <!-- TODO: додайте фото в images/team/ і змініть дані -->
@@ -206,37 +242,42 @@
     </div>
   </section>
 
-  <!-- ===== Контакти ===== -->
+  <!-- ===== 8. Контакти ===== -->
   <section class="section section--alt" id="contacts">
+    <span class="bignum" aria-hidden="true">8</span>
     <div class="container contacts">
       <div class="contacts__info">
+        <p class="eyebrow">Зв'яжіться з нами</p>
         <h2>Контакти</h2>
-        <!-- TODO: підставте адресу та телефон -->
-        <p><strong>Місце проведення:</strong> НУБіП України, Київ</p>
+        <p><strong>Адреса:</strong> 03041, Україна, м. Київ, вул. Героїв Оборони, 15</p>
+        <!-- TODO: підставте телефон -->
         <p><strong>Телефон:</strong> <a href="tel:+380000000000">+38 000 000 00 00</a></p>
         <p><strong>E-mail:</strong> <a href="mailto:expo@nubip.edu.ua">expo@nubip.edu.ua</a></p>
+        <p><strong>Сайт університету:</strong> <a href="https://nubip.edu.ua" target="_blank" rel="noopener">nubip.edu.ua</a></p>
 
         <!-- Без бази даних: форма відкриває поштовий клієнт -->
         <form class="form" id="contactForm">
           <input name="name" type="text" placeholder="Ім'я / компанія" required>
           <input name="email" type="email" placeholder="E-mail" required>
           <textarea name="message" rows="4" placeholder="Повідомлення" required></textarea>
-          <button class="btn btn--primary" type="submit">Надіслати</button>
+          <button class="btn btn--blue" type="submit">Надіслати</button>
         </form>
       </div>
-      <iframe class="map" title="Карта" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=%D0%9D%D0%A3%D0%91%D1%96%D0%9F+%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8+%D0%9A%D0%B8%D1%97%D0%B2&output=embed"></iframe>
+      <iframe class="map" title="Карта: НУБіП України, вул. Героїв Оборони, 15, Київ" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=%D0%B2%D1%83%D0%BB.+%D0%93%D0%B5%D1%80%D0%BE%D1%97%D0%B2+%D0%9E%D0%B1%D0%BE%D1%80%D0%BE%D0%BD%D0%B8+15+%D0%9A%D0%B8%D1%97%D0%B2&output=embed"></iframe>
     </div>
   </section>
 </main>
 
 <!-- ===== Футер ===== -->
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer__grid">
+  <div class="footer__main">
+    <div class="container footer__grid">
       <div>
-        <h4>EXPO NUBIP</h4>
-        <p>Виставка тваринництва НУБіП України.</p>
+        <div class="footer__brand">
+          <img src="images/logo/logo.svg" alt="НУБіП 1898" width="63" height="84">
+          <div><strong>НУБіП. Тваринництво</strong><span>Національний університет біоресурсів і природокористування України</span></div>
+        </div>
         <ul class="socials" aria-label="Соціальні мережі">
           <li><a href="https://www.facebook.com/share/19phwVVcNG/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg><use href="#i-facebook"/></svg></a></li>
           <li><a href="https://www.instagram.com/expo.nubip" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg><use href="#i-instagram"/></svg></a></li>
@@ -260,11 +301,17 @@
         <ul>
           <li><a href="mailto:expo@nubip.edu.ua">expo@nubip.edu.ua</a></li>
           <li><a href="tel:+380000000000">+38 000 000 00 00</a></li>
+          <li><a href="https://nubip.edu.ua" target="_blank" rel="noopener">nubip.edu.ua</a></li>
           <li><a href="#contacts">Як нас знайти</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer__bottom">© <span id="year">2026</span> EXPO NUBIP. Усі права захищено.</div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <span>03041, Україна, м. Київ, вул. Героїв Оборони, 15.</span>
+      <span>© <span id="year">2026</span> НУБіП України</span>
+    </div>
   </div>
 </footer>
 
