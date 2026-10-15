@@ -20,11 +20,14 @@ window.SITE_CONFIG = {
     "general-partners": [
       { file: "kuhn.svg", name: "КУН - Україна", url: "https://www.kuhn.ua/" },
       { file: "maschiogaspardo.png", name: "МАСКІО-ҐАСПАРДО Україна", url: "https://www.maschiogaspardo.com/uk_uk/" },
+
     ],
     "partners": [],
     "sponsors": [],
     "participants": [],
-    "info-partners": []
+    "info-partners": [
+      { file: "zeep.jpeg", name: "ZEEP", url: "https://www.youtube.com/@ZeepInUA" },
+]
   },
 
   /* ----------------------------------------------------------
