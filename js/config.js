@@ -19,6 +19,7 @@ window.SITE_CONFIG = {
   logos: {
     "general-partners": [
       { file: "kuhn.svg", name: "КУН - Україна", url: "https://www.kuhn.ua/" },
+      { file: "maschiogaspardo.png", name: "МАСКІО-ҐАСПАРДО Україна", url: "https://www.maschiogaspardo.com/uk_uk/" },
     ],
     "partners": [],
     "sponsors": [],
