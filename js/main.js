@@ -177,13 +177,49 @@
     renderGallery(galleryFiles);
   });
 
-  /* ---------- Форма: відкриває поштовий клієнт (без бази даних) ---------- */
+  /* ---------- Форма: лист надсилається без бази даних через FormSubmit ---------- */
+  var MAIL_TO = "expo@nubip.edu.ua";
+  var MAIL_SUBJECT = "Звернення з сайту НУБіП.Тваринництво";
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
     var f = e.target;
-    var body = "Ім'я/компанія: " + f.name.value + "\nE-mail: " + f.email.value + "\n\n" + f.message.value;
-    window.location.href = "mailto:expo@nubip.edu.ua?subject=" +
-      encodeURIComponent("Повідомлення з сайту EXPO NUBIP") + "&body=" + encodeURIComponent(body);
+    var status = document.getElementById("formStatus");
+    var btn = f.querySelector("button[type=submit]");
+    if (f._honey.value) return; /* спам-пастка */
+
+    function fallback() {
+      var body = "Ім'я/компанія: " + f.name.value + "\nE-mail: " + f.email.value + "\n\n" + f.message.value;
+      var href = "mailto:" + MAIL_TO + "?subject=" + encodeURIComponent(MAIL_SUBJECT) + "&body=" + encodeURIComponent(body);
+      status.textContent = "";
+      status.appendChild(document.createTextNode("Не вдалося надіслати автоматично. "));
+      var a = document.createElement("a");
+      a.href = href;
+      a.textContent = "Відкрити лист у поштовій програмі";
+      status.appendChild(a);
+      status.className = "form__status is-error";
+    }
+
+    btn.disabled = true;
+    status.className = "form__status";
+    status.textContent = "Надсилаємо…";
+    fetch("https://formsubmit.co/ajax/" + MAIL_TO, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: MAIL_SUBJECT,
+        _replyto: f.email.value,
+        _captcha: "false",
+        "Ім'я / компанія": f.name.value,
+        "E-mail": f.email.value,
+        "Повідомлення": f.message.value
+      })
+    }).then(function (r) {
+      return r.json().then(function (j) { if (!r.ok || String(j.success) === "false") throw new Error("fail"); });
+    }).then(function () {
+      f.reset();
+      status.textContent = "Дякуємо! Повідомлення надіслано.";
+      status.className = "form__status is-ok";
+    }).catch(fallback).then(function () { btn.disabled = false; });
   });
 
   document.getElementById("year").textContent = new Date().getFullYear();

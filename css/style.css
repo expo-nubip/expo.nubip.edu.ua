@@ -1,5 +1,5 @@
 /* ==========================================================
-   EXPO NUBIP · Виставка «НУБіП. Тваринництво»
+   EXPO NUBIP · Виставка «НУБіП.Тваринництво»
    Стиль за брендбуком НУБіП України (VI v1.0.1, 09.08.2024)
 
    Кольори (розд. 3):  синій #0061AB · жовтий #FFEF00
@@ -285,6 +285,11 @@ dialog.lightbox img { max-width: 96vw; max-height: 92vh; }
 .map { width: 100%; min-height: 340px; height: 100%; border: 0; box-shadow: var(--shadow); }
 .form { display: grid; gap: 12px; margin-top: 20px; }
 .form input, .form textarea { font: inherit; padding: 12px 14px; border: 1px solid var(--blue-50); border-radius: var(--radius); width: 100%; background: var(--white); }
+.form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form__status { margin: 0; min-height: 1.4em; font-weight: 600; color: var(--blue); }
+.form__status.is-ok { color: var(--green); }
+.form__status.is-error { color: var(--red); }
+.form button:disabled { opacity: .6; cursor: wait; }
 .form input:focus, .form textarea:focus { outline: 2px solid var(--blue); border-color: var(--blue); }
 
 /* ==========================================================
