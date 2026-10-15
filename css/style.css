@@ -224,6 +224,34 @@ p { margin: 0 0 1em; }
 .program__item h3 { font-size: 1.05rem; text-transform: uppercase; color: var(--blue); font-weight: 700; letter-spacing: .03em; }
 .program__item p { margin: .15em 0; font-weight: 600; }
 
+/* ---------- Додатки: дата в hero, підзаголовки, мітки, діаграма, відстані ---------- */
+.hero__date { margin: -8px 0 28px; display: grid; gap: 2px; }
+.hero__date b { font-size: 1.5rem; font-weight: 800; color: var(--yellow); }
+.hero__date span { font-weight: 300; }
+.subhead { margin: 44px 0 16px; color: var(--blue); font-weight: 700; text-transform: uppercase; font-size: 1.1rem; letter-spacing: .05em; padding-left: 12px; border-left: 5px solid var(--yellow); }
+.note { color: var(--muted); margin: 18px 0 0; }
+.chips { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.chips li { background: var(--blue-10); border-left: 4px solid var(--blue); padding: 14px 16px; }
+.chips b { display: block; color: var(--blue); }
+.chips span { color: var(--muted); font-size: .95rem; }
+.card__body p { margin: 0; color: var(--muted); }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.meter { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 14px; }
+.meter li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: baseline; }
+.meter i { grid-column: 1 / -1; height: 10px; background: var(--blue-10); position: relative; }
+.meter i::before { content: ""; position: absolute; inset: 0 auto 0 0; width: calc(var(--v) * 1%); background: var(--blue); }
+.meter i { grid-row: 2; }
+.meter b { color: var(--blue); grid-row: 1; grid-column: 2; }
+.countdown[hidden] { display: none; }
+.ticks { list-style: none; margin: 0; padding: 0; }
+.ticks li { padding: 8px 0 8px 28px; position: relative; border-bottom: 1px solid var(--blue-25); }
+.ticks li::before { content: ""; position: absolute; left: 4px; top: 14px; width: 10px; height: 10px; background: var(--yellow); border: 2px solid var(--blue); }
+.dist { list-style: none; margin: 10px 0 18px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.dist li { background: var(--white); border-top: 4px solid var(--yellow); padding: 10px 12px; box-shadow: var(--shadow); }
+.dist span { display: block; color: var(--muted); font-size: .9rem; }
+.dist b { color: var(--blue); font-size: 1.15rem; }
+@media (max-width: 960px) { .split { grid-template-columns: 1fr; gap: 0; } }
+
 /* ---------- Логотипи ---------- */
 .logo-block { margin-bottom: 44px; }
 .logo-block h3 { color: var(--blue); font-weight: 700; text-transform: uppercase; font-size: 1.1rem; letter-spacing: .05em; margin-bottom: 18px; padding-left: 12px; border-left: 5px solid var(--yellow); }
