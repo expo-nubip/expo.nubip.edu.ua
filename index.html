@@ -59,7 +59,7 @@
         <li><a href="#program">Програма</a></li>
         <li><a href="#participants">Учасники</a></li>
         <li><a href="#partners">Партнери</a></li>
-        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#gallery">Фотогалерея</a></li>
         <li><a href="#team">Команда</a></li>
         <li><a href="#contacts">Контакти</a></li>
       </ul>
@@ -267,10 +267,15 @@
   <section class="section section--alt" id="gallery">
     <span class="bignum" aria-hidden="true">6</span>
     <div class="container">
-      <p class="eyebrow">Фоторепортаж</p>
-      <h2>Найяскравіші моменти</h2>
-      <div class="gallery" id="galleryGrid"></div>
-      <p class="logo-empty" id="galleryEmpty" hidden>Фото з'являться незабаром.</p>
+      <p class="eyebrow">Фото з виставки</p>
+      <h2>Фотогалерея учасників</h2>
+      <div class="carousel" id="carousel" hidden aria-roledescription="карусель" aria-label="Фотогалерея учасників">
+        <div class="carousel__track" id="galleryGrid" tabindex="0"></div>
+        <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Попереднє фото">&#8249;</button>
+        <button class="carousel__btn carousel__btn--next" type="button" aria-label="Наступне фото">&#8250;</button>
+        <div class="carousel__dots" id="carouselDots"></div>
+      </div>
+      <p class="logo-empty" id="galleryEmpty" hidden>Фотографії учасників з'являться після виставки.</p>
     </div>
   </section>
 
@@ -377,7 +382,7 @@
   </div>
 </footer>
 
-<dialog class="lightbox" id="lightbox"><img alt=""></dialog>
+<dialog class="lightbox" id="lightbox"><img alt=""><button type="button" class="lb-btn lb-prev" aria-label="Попереднє">&#8249;</button><button type="button" class="lb-btn lb-next" aria-label="Наступне">&#8250;</button><button type="button" class="lb-btn lb-close" aria-label="Закрити">&times;</button></dialog>
 
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>

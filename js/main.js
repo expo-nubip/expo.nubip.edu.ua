@@ -178,40 +178,130 @@
     });
   });
 
-  /* ---------- Галерея + lightbox ---------- */
-  var grid = document.getElementById("galleryGrid");
+  /* ---------- Фотогалерея: карусель + lightbox ---------- */
+  var track = document.getElementById("galleryGrid");
+  var carousel = document.getElementById("carousel");
+  var dotsBox = document.getElementById("carouselDots");
   var empty = document.getElementById("galleryEmpty");
   var box = document.getElementById("lightbox");
+  var lbImg = box.querySelector("img");
+  var files = [], cur = 0, timer = null;
 
-  function renderGallery(files) {
-    grid.textContent = "";
-    empty.hidden = files.length > 0;
-    files.forEach(function (f) {
-      var src = "images/gallery/" + encodeURIComponent(f);
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.setAttribute("aria-label", "Відкрити фото");
-      var img = document.createElement("img");
-      img.src = src;
-      img.alt = "";
-      img.loading = "lazy";
-      btn.appendChild(img);
-      btn.addEventListener("click", function () {
-        box.querySelector("img").src = src;
-        if (box.showModal) box.showModal(); else window.open(src, "_blank");
-      });
-      grid.appendChild(btn);
+  function src(f) { return "images/gallery/" + encodeURIComponent(f); }
+  function perView() { return window.innerWidth <= 560 ? 1 : window.innerWidth <= 900 ? 2 : 3; }
+  function pages() { return Math.max(1, files.length - perView() + 1); }
+
+  function goTo(i, instant) {
+    var n = pages();
+    cur = (i % n + n) % n;
+    var item = track.children[cur];
+    if (item) track.scrollTo({ left: item.offsetLeft - track.offsetLeft, behavior: instant ? "auto" : "smooth" });
+    markDots();
+  }
+  function markDots() {
+    Array.prototype.forEach.call(dotsBox.children, function (d, k) {
+      if (k === cur) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");
     });
   }
-  box.addEventListener("click", function () { box.close(); });
+  function onScroll() {
+    var w = track.children[0] ? track.children[0].getBoundingClientRect().width + 12 : 1;
+    var i = Math.round(track.scrollLeft / w);
+    if (i !== cur) { cur = Math.min(i, pages() - 1); markDots(); }
+  }
+  function buildDots() {
+    dotsBox.textContent = "";
+    for (var k = 0; k < pages(); k++) {
+      (function (k) {
+        var d = document.createElement("button");
+        d.type = "button";
+        d.setAttribute("aria-label", "Фото " + (k + 1));
+        d.addEventListener("click", function () { goTo(k); restart(); });
+        dotsBox.appendChild(d);
+      })(k);
+    }
+    markDots();
+  }
+  function restart() {
+    clearInterval(timer);
+    var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || files.length <= perView()) return;
+    timer = setInterval(function () { if (!document.hidden && !box.open) goTo(cur + 1); }, 4500);
+  }
 
-  var galleryFiles = (CFG.gallery || []).slice();
-  renderGallery(galleryFiles);
-  listGithub("images/gallery").then(function (files) {
-    if (!files) return;
-    files.forEach(function (f) { if (galleryFiles.indexOf(f) < 0) galleryFiles.push(f); });
-    renderGallery(galleryFiles);
+  /* lightbox */
+  var lbIndex = 0;
+  function lbShow(i) {
+    lbIndex = (i % files.length + files.length) % files.length;
+    lbImg.src = src(files[lbIndex]);
+  }
+  function lbOpen(i) {
+    lbShow(i);
+    if (box.showModal) box.showModal(); else window.open(src(files[i]), "_blank");
+  }
+  box.querySelector(".lb-prev").addEventListener("click", function (e) { e.stopPropagation(); lbShow(lbIndex - 1); });
+  box.querySelector(".lb-next").addEventListener("click", function (e) { e.stopPropagation(); lbShow(lbIndex + 1); });
+  box.querySelector(".lb-close").addEventListener("click", function (e) { e.stopPropagation(); box.close(); });
+  box.addEventListener("click", function (e) { if (e.target === box || e.target === lbImg) box.close(); });
+  box.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") lbShow(lbIndex - 1);
+    if (e.key === "ArrowRight") lbShow(lbIndex + 1);
   });
+  /* свайп у lightbox */
+  var tx = null;
+  box.addEventListener("touchstart", function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener("touchend", function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx; tx = null;
+    if (Math.abs(dx) > 50) lbShow(lbIndex + (dx < 0 ? 1 : -1));
+  });
+
+  function renderGallery(list) {
+    files = list;
+    track.textContent = "";
+    carousel.hidden = !files.length;
+    empty.hidden = files.length > 0;
+    files.forEach(function (f, i) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("aria-label", "Відкрити фото " + (i + 1));
+      var img = document.createElement("img");
+      img.src = src(f);
+      img.alt = "Фото з виставки " + (i + 1);
+      img.loading = "lazy";
+      img.decoding = "async";
+      btn.appendChild(img);
+      btn.addEventListener("click", function () { lbOpen(i); });
+      track.appendChild(btn);
+    });
+    cur = 0;
+    buildDots();
+    restart();
+  }
+
+  carousel.querySelector(".carousel__btn--prev").addEventListener("click", function () { goTo(cur - 1); restart(); });
+  carousel.querySelector(".carousel__btn--next").addEventListener("click", function () { goTo(cur + 1); restart(); });
+  track.addEventListener("scroll", function () { clearTimeout(track._t); track._t = setTimeout(onScroll, 80); }, { passive: true });
+  carousel.addEventListener("mouseenter", function () { clearInterval(timer); });
+  carousel.addEventListener("mouseleave", restart);
+  track.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { goTo(cur - 1); restart(); }
+    if (e.key === "ArrowRight") { goTo(cur + 1); restart(); }
+  });
+  window.addEventListener("resize", function () { if (files.length) { buildDots(); goTo(Math.min(cur, pages() - 1), true); restart(); } });
+
+  /* Джерела списку фото (по черзі): gallery.json (його створює автообробка) -> GitHub API -> CFG.gallery */
+  function loadGallery() {
+    return fetch("images/gallery/gallery.json", { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (list) { if (!Array.isArray(list)) throw 0; return list.filter(function (f) { return IMG_RE.test(f); }); })
+      .catch(function () { return listGithub("images/gallery"); })
+      .then(function (list) {
+        var all = (list || []).slice();
+        (CFG.gallery || []).forEach(function (f) { if (all.indexOf(f) < 0) all.push(f); });
+        return all;
+      });
+  }
+  loadGallery().then(renderGallery);
 
   /* ---------- Форма: лист надсилається без бази даних через FormSubmit ---------- */
   var MAIL_TO = "expo@nubip.edu.ua";
