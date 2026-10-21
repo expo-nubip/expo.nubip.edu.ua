@@ -47,6 +47,42 @@
     });
   }
 
+  /* ---------- Hero: відеофон (якщо файли є) ---------- */
+  var hv = document.getElementById("heroVideo");
+  if (hv) {
+    var videoOff = function () {
+      hv.classList.add("is-off");
+      try { hv.pause(); } catch (e) {}
+    };
+    var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reduce || saveData) {
+      videoOff();
+    } else {
+      /* error останнього <source> означає, що жоден файл не завантажився */
+      var lastSrc = document.getElementById("heroVideoLast");
+      if (lastSrc) lastSrc.addEventListener("error", videoOff);
+      hv.addEventListener("error", videoOff);
+      /* події могли відбутися ще до виконання скрипта — тому ще й перевіряємо стан напряму */
+      var checkVideo = function () {
+        if (hv.networkState === 3) { videoOff(); return; } /* NETWORK_NO_SOURCE: файлів немає */
+        if (!hv.paused && hv.readyState >= 2) hv.classList.add("is-ready");
+      };
+      ["playing", "loadeddata", "canplay", "timeupdate"].forEach(function (ev) { hv.addEventListener(ev, checkVideo); });
+      window.addEventListener("load", checkVideo);
+      checkVideo();
+      var pl = hv.play();
+      if (pl && pl.catch) pl.catch(function () { /* автозапуск заблоковано — лишається картинка */ });
+      /* поза екраном відео не програємо — економимо батарею */
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (en) {
+          if (hv.classList.contains("is-off")) return;
+          if (en[0].isIntersecting) { var q = hv.play(); if (q && q.catch) q.catch(function () {}); } else { hv.pause(); }
+        }).observe(document.getElementById("hero"));
+      }
+    }
+  }
+
   /* ---------- Кнопка «Взяти участь» ---------- */
   var joinBtn = document.getElementById("joinBtn");
   if (joinBtn && CFG.registrationUrl) {

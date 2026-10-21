@@ -8,7 +8,7 @@
   <meta property="og:title" content="НУБіП.Тваринництво — виставка">
   <meta property="og:description" content="Виставка тваринництва НУБіП України: експозиція, програма, учасники та партнери.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/hero/hero-desktop.jpg">
+  <meta property="og:image" content="https://expo-nubip.github.io/expo.nubip.edu.ua/images/hero/hero-poster.jpg">
   <meta name="theme-color" content="#0061AB">
   <link rel="icon" href="images/logo/logo.svg" type="image/svg+xml">
 
@@ -86,8 +86,15 @@
       <!-- Великі та ультраширокі екрани -->
       <source media="(min-width: 2200px)" srcset="images/hero/hero-wide.jpg">
       <!-- Ноутбуки та ПК (за замовчуванням) -->
-      <img src="images/hero/hero-desktop.jpg" srcset="images/hero/hero-desktop.jpg 1x, images/hero/hero-desktop@2x.jpg 2x" alt="" fetchpriority="high" decoding="async">
+      <img src="images/hero/hero-poster.jpg" alt="" fetchpriority="high" decoding="async">
     </picture>
+
+    <!-- Відеофон (необов'язково): якщо файлів у images/hero/ немає, показується картинка вище.
+         Без звуку, у циклі; на телефонах із «економією трафіку» та при reduced-motion не вмикається. -->
+    <video class="hero__video" id="heroVideo" muted loop playsinline autoplay preload="metadata" poster="images/hero/hero-poster.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+      <source src="images/hero/hero-video.webm" type="video/webm">
+      <source src="images/hero/hero-video.mp4" type="video/mp4" id="heroVideoLast">
+    </video>
 
     <div class="container">
       <div class="hero__grid">
@@ -283,7 +290,7 @@
         <div class="person"><img src="images/team/hruntkovskyi.jpg" alt="" onerror="this.style.visibility='hidden'"><h3>Микола Грунтковський</h3><p>Начальник відділу діяльності дослідних господарств</p><p><a href="mailto:expo@nubip.edu.ua">expo@nubip.edu.ua</a></p></div>
         <div class="person"><img src="images/team/rosamakha.jpg" alt="" onerror="this.style.visibility='hidden'"><h3>Юрій Росамаха</h3><p>Директор НДГ «Агрономічна дослідна станція»</p><p><a href="mailto:VPagroDS@ukr.net">VPagroDS@ukr.net</a></p></div>
         <div class="person"><img src="images/team/achkevych.jpg" alt="" onerror="this.style.visibility='hidden'"><h3>Оксана Ачкевич</h3><p>Доцент кафедри охорони праці та біотехнічних систем у тваринництві</p><p><a href="mailto:achkevych@nubip.edu.ua">achkevych@nubip.edu.ua</a></p></div>
-        <div class="person"><img src="images/team/savchenko.jpg" alt="" onerror="this.style.visibility='hidden'"><h3>Альбіна Савченко</h3><p>Студентка факультету тваринницта та водних біоресурсів</p><p><a href="mailto:expo@nubip.edu.ua">expo@nubip.edu.ua</a></p></div>
+        <div class="person"><img src="images/team/savchenko.jpg" alt="" onerror="this.style.visibility='hidden'"><h3>Альбіна Савченко</h3><p>Студентка факультету тваринництва та водних біоресурсів</p><p><a href="mailto:expo@nubip.edu.ua">expo@nubip.edu.ua</a></p></div>
         <div class="person"><img src="images/team/kobysh.jpg" alt="" onerror="this.style.visibility='hidden'"><h3>Дарина Кобиш</h3><p>Студентка механіко-технологічного факультету</p><p><a href="mailto:expo@nubip.edu.ua">expo@nubip.edu.ua</a></p></div>
       </div>
     </div>
